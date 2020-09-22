@@ -8,7 +8,7 @@ import java.io.StringReader;
 import java.math.BigInteger;
 
 /**
- * SimHash算法
+ * SimHash算法基类
  *
  * @author cyq
  * @date 2020/9/22
@@ -17,9 +17,9 @@ public class SimHash {
 
     private final String token;
 
-    public BigInteger intSimHash;
-
     private final int hashbits;
+
+    private final BigInteger intSimHash;
 
     public SimHash(String token, int hashbits) throws IOException {
         this.token = token;

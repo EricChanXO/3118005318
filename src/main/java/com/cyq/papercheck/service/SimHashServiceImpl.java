@@ -1,13 +1,15 @@
-package com.cyq.papercheck.sim;
+package com.cyq.papercheck.service;
 
 /**
- * 计算类
+ * SimHash算法计算相似度
  *
  * @author cyq
  * @date 2020/9/22
  */
-public class Calculate {
-    public static double getSimliar(int x) {
+public class SimHashServiceImpl implements SimHashService{
+
+    @Override
+    public  double getSimliar(int x) {
         double part1 = Math.sqrt(2 * Math.PI * 0.16);
 
         double part2 = Math.pow(0.01 * x - 0.01, 2);

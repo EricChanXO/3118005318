@@ -1,4 +1,4 @@
-package com.cyq.papercheck.cs;
+package com.cyq.papercheck.service;
 
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
@@ -15,19 +15,22 @@ import java.util.Vector;
  * @author cyq
  * @date 2020/9/21
  */
-public class CosineSimilarity {
+public class CosineSimilarityServiceImpl implements CosineSimilarityService {
 
     private static String news;
 
-    static public double getSimilarity(String t1, String t2) throws IOException {
+    @Override
+    public double getSimilarity(String text1, String text2) throws IOException {
         //词出现的位置
         Map<String, Vector<Integer>> offset1 = new TreeMap<String, Vector<Integer>>();
         //按键值排序
         Map<String, Vector<Integer>> offset2 = new TreeMap<String, Vector<Integer>>();
+
         int pos = 0;
-        StringReader sr1 = new StringReader(t1);
+        StringReader sr1 = new StringReader(text1);
         IKSegmenter ik1 = new IKSegmenter(sr1, true);
         Lexeme lex;
+
         while ((lex = ik1.next()) != null) {
             component(lex);
             if (offset1.get(news) == null) {
@@ -39,7 +42,7 @@ public class CosineSimilarity {
             pos++;
         }
 
-        StringReader sr2 = new StringReader(t2);
+        StringReader sr2 = new StringReader(text2);
         IKSegmenter ik2 = new IKSegmenter(sr2, true);
         pos = 0;
         while ((lex = ik2.next()) != null) {

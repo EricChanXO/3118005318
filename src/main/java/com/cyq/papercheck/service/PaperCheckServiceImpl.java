@@ -1,17 +1,14 @@
-package com.cyq.papercheck;
+package com.cyq.papercheck.service;
 
-import com.cyq.papercheck.cs.CosineSimilarity;
 import com.cyq.papercheck.exception.CommonException;
-import com.cyq.papercheck.sim.Calculate;
 import com.cyq.papercheck.sim.SimHash;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-public class Unit {
-    static double ans(String path1, String path2) throws IOException {
+public class PaperCheckServiceImpl implements PaperCheckService{
+
+    @Override
+    public double check(String path1, String path2) throws IOException {
         // 被比较文本与比较文本
         StringBuilder text1 = new StringBuilder();
         StringBuilder text2 = new StringBuilder();
@@ -40,10 +37,13 @@ public class Unit {
             SimHash hash2 = new SimHash(text2.toString(), 64);
             // 海明距离
             int hammingDistance = hash1.hammingDistance(hash2);
-            answer = Calculate.getSimliar(hammingDistance);
+            // SimHash算法
+            SimHashService simHashService = new SimHashServiceImpl();
+            answer = simHashService.getSimliar(hammingDistance);
         } else {
             // 余弦相似度算法
-            answer = CosineSimilarity.getSimilarity(text1.toString(), text2.toString());
+            CosineSimilarityService cosineSimilarityService = new CosineSimilarityServiceImpl();
+            answer = cosineSimilarityService.getSimilarity(text1.toString(), text2.toString());
         }
         System.out.println("原文文件与需查重文件的相似度为:" + answer);
         return answer;

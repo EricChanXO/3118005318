@@ -1,6 +1,8 @@
 package com.cyq.papercheck;
 
 import com.cyq.papercheck.exception.CommonException;
+import com.cyq.papercheck.service.PaperCheckService;
+import com.cyq.papercheck.service.PaperCheckServiceImpl;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,7 +20,8 @@ public class PaperCheckMain {
         double answer;
         try {
             // args[0]:原文文件 args[1]:抄袭版文件
-            answer = Unit.ans(args[0], args[1]);
+            PaperCheckService paperCheckService = new PaperCheckServiceImpl();
+            answer = paperCheckService.check(args[0], args[1]);
         } catch (IOException e) {
             throw new CommonException("IO异常");
         }
