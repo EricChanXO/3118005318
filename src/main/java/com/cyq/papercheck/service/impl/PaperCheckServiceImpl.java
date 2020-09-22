@@ -1,11 +1,17 @@
-package com.cyq.papercheck.service;
+package com.cyq.papercheck.service.impl;
 
 import com.cyq.papercheck.exception.CommonException;
+import com.cyq.papercheck.service.CosineSimilarityService;
+import com.cyq.papercheck.service.PaperCheckService;
+import com.cyq.papercheck.service.SimHashService;
 import com.cyq.papercheck.sim.SimHash;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class PaperCheckServiceImpl implements PaperCheckService{
+public class PaperCheckServiceImpl implements PaperCheckService {
 
     @Override
     public double check(String path1, String path2) throws IOException {

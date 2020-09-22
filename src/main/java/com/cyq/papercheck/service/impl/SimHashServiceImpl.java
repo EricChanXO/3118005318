@@ -1,4 +1,6 @@
-package com.cyq.papercheck.service;
+package com.cyq.papercheck.service.impl;
+
+import com.cyq.papercheck.service.SimHashService;
 
 /**
  * SimHash算法计算相似度
@@ -6,7 +8,7 @@ package com.cyq.papercheck.service;
  * @author cyq
  * @date 2020/9/22
  */
-public class SimHashServiceImpl implements SimHashService{
+public class SimHashServiceImpl implements SimHashService {
 
     @Override
     public  double getSimliar(int x) {

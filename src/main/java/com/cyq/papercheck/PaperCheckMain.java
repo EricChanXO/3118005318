@@ -2,7 +2,7 @@ package com.cyq.papercheck;
 
 import com.cyq.papercheck.exception.CommonException;
 import com.cyq.papercheck.service.PaperCheckService;
-import com.cyq.papercheck.service.PaperCheckServiceImpl;
+import com.cyq.papercheck.service.impl.PaperCheckServiceImpl;
 
 import java.io.File;
 import java.io.FileWriter;

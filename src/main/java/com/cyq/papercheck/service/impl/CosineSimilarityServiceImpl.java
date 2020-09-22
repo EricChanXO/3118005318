@@ -1,5 +1,6 @@
-package com.cyq.papercheck.service;
+package com.cyq.papercheck.service.impl;
 
+import com.cyq.papercheck.service.CosineSimilarityService;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
