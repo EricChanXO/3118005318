@@ -21,7 +21,7 @@ public class SimHashServiceImpl implements SimHashService {
         double form1 = 1 / part1;
 
         double form2 = Math.exp(part2 / part3);
-
+        System.out.println((form1 * form2));
         return form1 * form2;
     }
 }
